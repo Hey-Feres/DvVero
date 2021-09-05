@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Hey-Feres/RailsAdminTheme
-  revision: cba4a2b69fae5c485ffddba81b29dc0ff411e1d7
+  revision: 1a2ba68d623b73439d118bfe547b0109110ba506
   specs:
     rails_admin_rollincode (1.3)
       rails (>= 4.0, < 7)
