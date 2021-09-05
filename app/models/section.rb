@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
+	include ApplicationHelper
+
 	enum title_alignment: %i[left rigth center], _prefix: :title_alignment
 	enum content_alignment: %i[left rigth center], _prefix: :content_alignment
 
@@ -22,6 +24,12 @@ class Section < ApplicationRecord
 		self.background_color = "##{background_color}" if background_color&.chars&.first != '#'
 		self.title_color = "##{title_color}" if title_color&.chars&.first != '#'
 		self.content_color = "##{content_color}" if content_color&.chars&.first != '#'
+		
+		self.background_filter_color = 	if is_light_color? content_color
+																	  	'#000000'
+																		else
+																			'#FFFFFF'
+																		end
 	end
 
 	def update_sorting
