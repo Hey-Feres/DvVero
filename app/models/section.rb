@@ -20,19 +20,13 @@ class Section < ApplicationRecord
 	def update_sorting
 		return unless should_update_sorting?
 
-		section = Section.find_by(sort_position: sort_position)
-		section.update(sort_position: section.sort_position + 1)
+		current_section_w_sort_num = Section.find_by(sort_position: sort_position)
+		current_section_w_sort_num.update_column(:sort_position, Section.order(sort_position: :asc).last.sort_position + 1)
+
+		# Section.order(sort_position: :asc).each_with_index { |section, i| section.update_column(:sort_position, i + 1) }
 	end
 
 	def should_update_sorting?
-		Section.all.pluck(:sort_position).include?(sort_position && Section.find_by(sort_position: sort_position)&.id != id)
-	end
-
-	def order_sorting
-		sections = Section.all.order(sort_position: :asc)
-
-		sections.size.times do |i|
-			sections[i].update_column(:sort_position, i + 1)
-		end
+		Section.all.pluck(:sort_position).include?(sort_position) && Section.find_by(sort_position: sort_position)&.id != id
 	end
 end
