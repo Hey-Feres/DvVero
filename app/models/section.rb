@@ -40,13 +40,13 @@ class Section < ApplicationRecord
 													end
 
 		self.background_filter_color = 	if content_color.present?
+																			if is_light_color?(content_color)
+																				'#000000'
+																			else
+																				'#FFFFFF'
+																			end
 																		else
-																		end
-
-		self.background_filter_color = 	if is_light_color?(content_color)
-																	  	'#000000'
-																		else
-																			'#FFFFFF'
+																			'#000000'
 																		end
 	end
 
