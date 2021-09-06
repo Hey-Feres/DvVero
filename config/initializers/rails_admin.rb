@@ -60,9 +60,6 @@ RailsAdmin.config do |config|
       field :sort_position
       field :title_alignment
       field :content_alignment
-      field :background_color, :color
-      field :title_color, :color
-      field :content_color, :color
       field :mobile_image
       field :desktop_image
       field :active

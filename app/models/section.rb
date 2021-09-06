@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
-	include ApplicationHelper
-
 	enum title_alignment: %i[left rigth center], _prefix: :title_alignment
 	enum content_alignment: %i[left rigth center], _prefix: :content_alignment
 
@@ -14,41 +12,10 @@ class Section < ApplicationRecord
 	has_one_attached :desktop_image
 
 	before_save :update_sorting
-	before_save :format_colors
 
 	scope :active, -> { where(active: true) }
 
 	private
-
-	def format_colors
-		self.background_color = if background_color.present?
-															"##{background_color}" if background_color.chars&.first != '#'
-														else
-															"#FFFFFF"
-														end
-
-		self.title_color =  if title_color.present?
-													"##{title_color}" if title_color.chars&.first != '#'
-												else
-													"#FFFFFF"
-												end
-
-		self.content_color =  if content_color.present?
-														"##{content_color}" if content_color.chars&.first != '#'
-													else
-														"#FFFFFF"
-													end
-
-		self.background_filter_color = 	if content_color.present?
-																			if is_light_color?(content_color)
-																				'#000000'
-																			else
-																				'#FFFFFF'
-																			end
-																		else
-																			'#000000'
-																		end
-	end
 
 	def update_sorting
 		return unless should_update_sorting?

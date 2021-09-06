@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_05_225700) do
+ActiveRecord::Schema.define(version: 2021_09_06_130932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,9 @@ ActiveRecord::Schema.define(version: 2021_09_05_225700) do
     t.integer "sort_position", default: 1
     t.integer "title_alignment", default: 0
     t.integer "content_alignment", default: 0
-    t.string "background_color"
-    t.string "title_color"
-    t.string "content_color"
     t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "background_filter_color"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
