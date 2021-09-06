@@ -21,11 +21,29 @@ class Section < ApplicationRecord
 	private
 
 	def format_colors
-		self.background_color = "##{background_color}" if background_color&.chars&.first != '#'
-		self.title_color = "##{title_color}" if title_color&.chars&.first != '#'
-		self.content_color = "##{content_color}" if content_color&.chars&.first != '#'
-		
-		self.background_filter_color = 	if is_light_color? content_color
+		self.background_color = if background_color.present?
+															"##{background_color}" if background_color.chars&.first != '#'
+														else
+															"#FFFFFF"
+														end
+
+		self.title_color =  if title_color.present?
+													"##{title_color}" if title_color.chars&.first != '#'
+												else
+													"#FFFFFF"
+												end
+
+		self.content_color =  if content_color.present?
+														"##{content_color}" if content_color.chars&.first != '#'
+													else
+														"#FFFFFF"
+													end
+
+		self.background_filter_color = 	if content_color.present?
+																		else
+																		end
+
+		self.background_filter_color = 	if is_light_color?(content_color)
 																	  	'#000000'
 																		else
 																			'#FFFFFF'
