@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 # RailsAdmin is a Rails engine that provides an easy-to-use interface for managing your data.
-gem 'rails_admin', :git => 'git@github.com:Hey-Feres/rails_admin.git'
+gem 'rails_admin', git: 'https://github.com/Hey-Feres/rails_admin.git'
 # Translations for Rails Admin v0.6.6+ pulled from various sources
 gem 'rails_admin-i18n'
 # Shim to load environment variables from .env into ENV in development

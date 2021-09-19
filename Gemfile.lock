@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:Hey-Feres/rails_admin.git
+  remote: https://github.com/Hey-Feres/rails_admin.git
   revision: 8d346f06b0440851d0247173fdd3413ec10990a2
   specs:
     rails_admin (3.0.0.alpha)
