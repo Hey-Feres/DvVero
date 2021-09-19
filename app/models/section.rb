@@ -6,27 +6,32 @@ class Section < ApplicationRecord
 
 	validates :title, presence: true
 	validates :content, presence: true, length: { minimum: 1, maximum: 350 }
-	validates :sort_position, presence: true
+	validates :sort_position, presence: true, uniqueness: true
 
 	has_one_attached :mobile_image
 	has_one_attached :desktop_image
 
-	before_save :update_sorting
+	before_validation :update_sorting
 
 	scope :active, -> { where(active: true) }
 
 	private
 
 	def update_sorting
+		self.sort_position = last_sorted_item.sort_position + 1 if self.sort_position > last_sorted_item.sort_position
+
 		return unless should_update_sorting?
 
-		current_section_w_sort_num = Section.find_by(sort_position: sort_position)
-		current_section_w_sort_num.update_column(:sort_position, Section.order(sort_position: :asc).last.sort_position + 1)
-
-		# Section.order(sort_position: :asc).each_with_index { |section, i| section.update_column(:sort_position, i + 1) }
+		Section.where(sort_position: self.sort_position..last_sorted_item.sort_position).each do |section|
+			section.update_column(:sort_position, section.sort_position + 1)
+		end
 	end
 
 	def should_update_sorting?
 		Section.all.pluck(:sort_position).include?(sort_position) && Section.find_by(sort_position: sort_position)&.id != id
+	end
+
+	def last_sorted_item
+		Section.order(sort_position: :desc).first
 	end
 end
