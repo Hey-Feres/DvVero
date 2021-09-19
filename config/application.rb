@@ -21,8 +21,6 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
-ENV['RAILS_ADMIN_THEME'] = 'rollincode'
-
 module DvVero
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

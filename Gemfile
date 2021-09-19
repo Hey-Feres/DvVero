@@ -20,11 +20,9 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 # RailsAdmin is a Rails engine that provides an easy-to-use interface for managing your data.
-gem 'rails_admin', '~> 2.0'
+gem 'rails_admin', :git => 'git@github.com:Hey-Feres/rails_admin.git'
 # Translations for Rails Admin v0.6.6+ pulled from various sources
 gem 'rails_admin-i18n'
-# A modern override of default bootstrap 3 rails_admin theme
-gem 'rails_admin_rollincode', :git => 'https://github.com/Hey-Feres/RailsAdminTheme'
 # Shim to load environment variables from .env into ENV in development
 gem 'dotenv-rails'
 # This gem is a port of Perl's Data::Faker library that generates fake data.
@@ -33,6 +31,8 @@ gem 'faker'
 gem 'slim-rails'
 # RuboCop is a Ruby linter and code formatter
 gem 'rubocop'
+# Used for processing rails admin images
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
