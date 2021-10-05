@@ -11,8 +11,10 @@ pt-BR:
         content_alignment: Alinhamento do Conteúdo
         created_at: Criado em
         updated_at: Atualizado em
-        mobile_image: Imagem Dispositivos Móveis
-        desktop_image: Imagem Desktop
+        first_mobile_image: Primeira Imagem Dispositivos Móveis
+        first_desktop_image: Primeira Imagem Desktop
+        second_mobile_image: Segunda Imagem Dispositivos Móveis
+        second_desktop_image: Segunda Imagem Desktop
         background_color: Cor de Fundo
         title_color: Cor do Titulo
         content_color: Cor do Conteúdo

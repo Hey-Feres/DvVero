@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @sections = Section.active.order(sort_position: :asc)
+    @sections = Section.with_images.active.order(sort_position: :asc)
   end
 end

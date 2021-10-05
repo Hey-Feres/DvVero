@@ -1,7 +1,10 @@
+#overlay
 - @sections.each do |section|
 	- if section.desktop_image.attached?
-		section style="background-image: url(#{url_for(section.desktop_image)}), linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); height: 35rem; background-size: cover"
+		/ linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))
+		section style="background-image: url(#{url_for(section.desktop_image)})"
 			.content
+				.overlay
 				h2 style="color: white; text-align: #{section.title_alignment}"= section.title
 				p style="color: white; text-align: #{section.content_alignment}"= section.content
 
@@ -15,11 +18,23 @@ css:
 
 	section {
 		padding: 2%;
-		background-blend-mode: overlay;
 		border-bottom: 3px solid #000;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		background-size: cover;
+		height: 35rem;
+		position: relative;
+	}
+
+	.overlay {
+   	position: absolute;
+   	top: 0;
+   	left: 0;
+   	width: 100%;
+   	height: 100%;
+   	background-color: rgba(0,0,0,0.6);
+   	z-index: 0;
 	}
 
 	.content {
