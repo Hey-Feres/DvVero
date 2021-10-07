@@ -5,7 +5,7 @@ class Section < ApplicationRecord
 	enum content_alignment: %i[left rigth center], _prefix: :content_alignment
 
 	validates :title, presence: true
-	validates :content, length: { maximum: 350 }
+	validates :content, length: { maximum: 500 }
 	validates :sort_position, presence: true, uniqueness: true
 
 	has_one_attached :first_image

@@ -58,6 +58,8 @@ RailsAdmin.config do |config|
       field :title
       field :content
       field :sort_position
+      field :background_color, :color
+      field :text_color, :color
       field :first_image
       field :second_image
       field :active
