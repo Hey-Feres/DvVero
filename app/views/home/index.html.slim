@@ -1,67 +1,89 @@
-#overlay
 - @sections.each do |section|
-	- if section.desktop_image.attached?
-		/ linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))
-		section style="background-image: url(#{url_for(section.desktop_image)})"
-			.content
-				.overlay
-				h2 style="color: white; text-align: #{section.title_alignment}"= section.title
-				p style="color: white; text-align: #{section.content_alignment}"= section.content
+	- if section.two_images_section?
+		.d-flex.justify-content-left.align-items-center.primary-bg.px-4.py-2
+			h1.title.text-white= section.title
+		.row
+			.col-sm-12.col-md-6.col-lg-6.padding-0
+				= image_tag rails_blob_path(section.first_desktop_image, disposition: 'attachment'), style: 'width: 100%'
+			.col-sm-12.col-md-6.col-lg-6.padding-0
+				= image_tag rails_blob_path(section.second_desktop_image, disposition: 'attachment'), style: 'width: 100%'
+	- else
+
+/ #overlay
+/ - @sections.each do |section|
+/ 	- if section.desktop_image.attached?
+/ 		/ linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))
+/ 		section style="background-image: url(#{url_for(section.desktop_image)})"
+/ 			.content
+/ 				.overlay
+/ 				h2 style="color: white; text-align: #{section.title_alignment}"= section.title
+/ 				p style="color: white; text-align: #{section.content_alignment}"= section.content
 
 
+/ css:
+/ 	body {
+/ 		margin: 0;
+/ 		padding: 0;
+/ 		font-family: sans-serif;
+/ 	}
+
+/ 	section {
+/ 		padding: 2%;
+/ 		border-bottom: 3px solid #000;
+/ 		display: flex;
+/ 		flex-direction: column;
+/ 		justify-content: center;
+/ 		background-size: cover;
+/ 		height: 35rem;
+/ 		position: relative;
+/ 	}
+
+/ 	.overlay {
+/    	position: absolute;
+/    	top: 0;
+/    	left: 0;
+/    	width: 100%;
+/    	height: 100%;
+/    	background-color: rgba(0,0,0,0.6);
+/    	z-index: 0;
+/ 	}
+
+/ 	.content {
+/ 		margin: 2% 17.5% !important;
+/ 		width: 65%;
+/ 	}
+
+/ 	section h2 {
+/ 		font-size: 5rem;
+/ 	}
+
+/ 	section p {
+/ 		font-size: 2rem;
+/ 	}
+
+/ 	@media only screen and (max-width: 768px) {
+/ 		/* smartphones, Android phones, landscape iPhone */
+/ 		.content {
+/ 			margin: 2% 7.5% !important;
+/ 			width: 85% !important;
+/ 		}
+
+/ 		section h2 {
+/ 			font-size: 3rem;
+/ 		}
+
+/ 		section p {
+/ 			font-size: 1.5rem;
+/ 		}
+/ 	}
 css:
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: sans-serif;
+	.padding-0 {
+	  padding-right:0;
+	  padding-left:0;
 	}
-
-	section {
-		padding: 2%;
-		border-bottom: 3px solid #000;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		background-size: cover;
-		height: 35rem;
-		position: relative;
+	.title {
+		font-size: 3.5rem;
 	}
-
-	.overlay {
-   	position: absolute;
-   	top: 0;
-   	left: 0;
-   	width: 100%;
-   	height: 100%;
-   	background-color: rgba(0,0,0,0.6);
-   	z-index: 0;
-	}
-
-	.content {
-		margin: 2% 17.5% !important;
-		width: 65%;
-	}
-
-	section h2 {
-		font-size: 5rem;
-	}
-
-	section p {
-		font-size: 2rem;
-	}
-
-	@media only screen and (max-width: 768px) {
-		/* smartphones, Android phones, landscape iPhone */
-		.content {
-			margin: 2% 7.5% !important;
-			width: 85% !important;
-		}
-
-		section h2 {
-			font-size: 3rem;
-		}
-
-		section p {
-			font-size: 1.5rem;
-		}
+	.primary-bg {
+		background: rgb(62,75,91);
 	}

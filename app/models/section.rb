@@ -5,7 +5,9 @@ class Section < ApplicationRecord
 	enum content_alignment: %i[left rigth center], _prefix: :content_alignment
 
 	validates :title, presence: true
-	validates :content, presence: true, length: { minimum: 1, maximum: 350 }
+	validates :content, presence: true, length: { minimum: 1, maximum: 350 }, unless: -> {
+		first_mobile_image_attachment && first_desktop_image_attachment && second_mobile_image_attachment && second_desktop_image_attachment
+	}
 	validates :sort_position, presence: true, uniqueness: true
 
 	has_one_attached :first_mobile_image
@@ -29,12 +31,11 @@ class Section < ApplicationRecord
 	private
 
 	def update_sorting
-		self.sort_position = last_sorted_item.sort_position + 1 if self.sort_position > last_sorted_item.sort_position
+		self.sort_position = last_sorted_item_position + 1 if self.sort_position > last_sorted_item_position
 
-		byebug
 		return unless should_update_sorting?
 
-		Section.where(sort_position: self.sort_position..last_sorted_item.sort_position).each do |section|
+		Section.where(sort_position: self.sort_position..last_sorted_item_position).each do |section|
 			section.update_column(:sort_position, section.sort_position + 1)
 		end
 	end
@@ -43,7 +44,9 @@ class Section < ApplicationRecord
 		Section.all.pluck(:sort_position).include?(sort_position) && Section.find_by(sort_position: sort_position)&.id != id
 	end
 
-	def last_sorted_item
-		Section.order(sort_position: :desc).first
+	def last_sorted_item_position
+		return 0 if Section.count == 0
+
+		Section.order(sort_position: :desc).first.sort_position
 	end
 end
