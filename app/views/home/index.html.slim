@@ -4,9 +4,9 @@
 			h1.title.text-white= section.title
 		.row
 			.col-sm-12.col-md-6.col-lg-6.padding-0
-				= image_tag rails_blob_path(section.first_desktop_image, disposition: 'attachment'), style: 'width: 100%'
+				= image_tag rails_blob_path(section.first_image_attachment, disposition: 'attachment'), style: 'width: 100%'
 			.col-sm-12.col-md-6.col-lg-6.padding-0
-				= image_tag rails_blob_path(section.second_desktop_image, disposition: 'attachment'), style: 'width: 100%'
+				= image_tag rails_blob_path(section.second_image_attachment, disposition: 'attachment'), style: 'width: 100%'
 	- else
 		.row
 			.col-sm-12.col-md-6.col-lg-6.px-5.py-5
@@ -14,7 +14,7 @@
 				p.content= section.content
 			.col-sm-12.col-md-6.col-lg-6.px-5.py-5
 				center
-					= image_tag rails_blob_path(section.first_desktop_image, disposition: 'attachment'), class: 'single-image-section-img'
+					= image_tag rails_blob_path(section.first_image_attachment, disposition: 'attachment'), class: 'single-image-section-img'
 
 
 css:

@@ -58,12 +58,8 @@ RailsAdmin.config do |config|
       field :title
       field :content
       field :sort_position
-      # field :title_alignment
-      # field :content_alignment
-      field :first_mobile_image
-      field :first_desktop_image
-      field :second_mobile_image
-      field :second_desktop_image
+      field :first_image
+      field :second_image
       field :active
     end
   end
