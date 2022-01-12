@@ -1,62 +1,17 @@
-/ rgb(62,75,91)
-- @sections.each do |section|
-	- if section.two_images_section?
-		.d-flex.justify-content-left.align-items-center.px-4.py-2 style="background: #{section.background_color}; width: 100%"
-			h1.title style="color: #{section.text_color}"= section.title
-		.row
-			.col-sm-12.col-md-6.col-lg-6.padding-0
-				= image_tag rails_blob_path(section.first_image_attachment, disposition: 'attachment'), style: 'width: 100%'
-			.col-sm-12.col-md-6.col-lg-6.padding-0
-				= image_tag rails_blob_path(section.second_image_attachment, disposition: 'attachment'), style: 'width: 100%'
-	- else
-		.row.single-image-section style="background: #{section.background_color}"
-			.col-sm-12.col-md-6.col-lg-6
-				p.content-title style="color: #{section.text_color}"= section.title
-				p.content style="color: #{section.text_color}"= section.content
-			.col-sm-12.col-md-6.col-lg-6
-				center
-					= image_tag rails_blob_path(section.first_image_attachment, disposition: 'attachment'), class: 'single-image-section-img'
-
+img src='/desktop/secao01.png'
+img src='/desktop/secao02.png'
+img src='/desktop/secao03.png'
+img src='/desktop/secao04.png'
+img src='/desktop/secao05.png'
+img src='/desktop/secao06.png'
+img src='/desktop/secao07.png'
+img src='/desktop/secao08.png'
+img src='/desktop/secao09.png'
 
 css:
-	.padding-0 {
-	  padding-right:0;
-	  padding-left:0;
+	body{
+		background: gray
 	}
-	.title {
-		font-size: 3.5rem;
-	}
-	.content {
-		font-size: 2rem;
-	}
-	.content-title {
-		font-size: 2.3rem;
-		font-weight: bold;
-		margin-bottom: 0;
-	}
-	.single-image-section {
-		padding: 3%;
-	}
-	.single-image-section-img {
-		width: 55%;
-	}
-
-	@media only screen and (max-width: 768px) {
-		.single-image-section-img {
-			width: 100%;
-		}
-		.title {
-			font-size: 2.5rem;
-			color: rgb(62,75,91);
-		}
-		.content {
-			font-size: 1.7rem;
-			color: rgb(62,75,91);
-		}
-		.content-title {
-			font-size: 2rem;
-		}
-		.single-image-section {
-			padding: 7%;
-		}
+	img{
+		width: 100vw;
 	}
