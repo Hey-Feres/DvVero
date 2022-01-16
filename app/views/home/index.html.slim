@@ -1,5 +1,5 @@
 - @sections.each do |section|
-	= image_tag(section.desktop_image)
+	= image_tag(section.desktop_image) if section.desktop_image.attached?
 end
 
 css:
