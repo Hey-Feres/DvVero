@@ -4,23 +4,21 @@ class Section < ApplicationRecord
 	enum title_alignment: %i[left rigth center], _prefix: :title_alignment
 	enum content_alignment: %i[left rigth center], _prefix: :content_alignment
 
-	validates :title, presence: true
-	validates :content, length: { maximum: 500 }
 	validates :sort_position, presence: true, uniqueness: true
 
-	has_one_attached :first_image
-	has_one_attached :second_image
+	has_one_attached :desktop_image
+	has_one_attached :mobile_image
 
 	before_validation :update_sorting
 
 	scope :active, -> { where(active: true) }
 
 	scope :with_images, -> {
-		eager_load(:first_image_attachment, :second_image_attachment)
+		eager_load(:desktop_image_attachment, :mobile_image_attachment)
 	}
 
 	def two_images_section?
-		self.first_image_attachment.present? && self.second_image_attachment.present?
+		self.desktop_image_attachment.present? && self.mobile_image_attachment.present?
 	end
 
 	private

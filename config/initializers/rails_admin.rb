@@ -56,12 +56,12 @@ RailsAdmin.config do |config|
 
     edit do
       field :title
-      field :content
+      # field :content
       field :sort_position
-      field :first_image
-      field :second_image
-      field :background_color, :color
-      field :text_color, :color
+      field :desktop_image
+      field :mobile_image
+      # field :background_color, :color
+      # field :text_color, :color
       field :active
     end
   end
