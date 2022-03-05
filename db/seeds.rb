@@ -7,13 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env.production?
-	Dir[Rails.root.join('public','desktop', '*')].sort.each_with_index do |file, i|
+	# Dir[Rails.root.join('public','imgs', '*')].sort.each_with_index do |file, i|
+	12.times.each do |i|
 		section = Section.new
 		section.sort_position = i + 1
 		section.active = true
 		section.desktop_image.attach(
-			io: File.open(file),
-			filename: file.split("/").last
+			io: File.open( "#{Rails.root.join('public','imgs').to_s}/desktop_#{i+1}.jpg" ),
+			filename: "desktop_#{i+1}.jpg"
+		)
+		section.mobile_image.attach(
+			io: File.open( "#{Rails.root.join('public','imgs').to_s}/mobile_#{i+1}.jpg" ),
+			filename: "mobile_#{i+1}.jpg"
 		)
 		section.save!
 	end

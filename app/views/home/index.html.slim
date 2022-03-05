@@ -1,11 +1,22 @@
 - @sections.each do |section|
-	= image_tag(section.desktop_image) if section.desktop_image.attached?
-end
+	= image_tag(section.desktop_image, class: 'desktop-img') if section.desktop_image.attached?
+	= image_tag(section.mobile_image, class: 'mobile-img') if section.mobile_image.attached?
 
 css:
-	body{
-		background: gray
-	}
 	img{
 		width: 100vw;
+	}
+	.desktop-img{
+		display: block;
+	}
+	.mobile-img{
+		display: none;
+	}
+	@media only screen and (max-width: 600px) {
+		.desktop-img{
+			display: none;
+		}
+		.mobile-img{
+			display: block;
+		}
 	}
