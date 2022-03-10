@@ -54,6 +54,14 @@ RailsAdmin.config do |config|
       field :created_at
     end
 
+    show do
+      field :title
+      field :sort_position
+      field :desktop_image
+      field :mobile_image
+      field :active
+    end
+
     edit do
       field :title
       # field :content

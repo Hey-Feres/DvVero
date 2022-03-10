@@ -24,7 +24,9 @@ class Section < ApplicationRecord
 	private
 
 	def update_sorting
-		self.sort_position = last_sorted_item_position + 1 if self.sort_position > last_sorted_item_position
+		if self.sort_position > last_sorted_item_position
+			self.sort_position = last_sorted_item_position + 1
+		end
 
 		return unless should_update_sorting?
 
