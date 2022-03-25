@@ -1,0 +1,42 @@
+.nav
+  .brand-wrapper
+    img src="/lorem-assets/logo.svg"
+  .menu-wrapper
+    span Criação
+    span Estruturação
+    span Transformação
+
+sass:
+  .nav
+    height: 70px
+    width: 100%
+    position: absolute
+    top: 20px
+    left: 0
+
+  .brand-wrapper, .menu-wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    position: absolute
+    left: 0
+
+  .brand-wrapper
+    height: 40px
+    top: 0
+    img
+      width: 200px
+
+  .menu-wrapper
+    height: 30px
+    top: 50px
+    span
+      margin: 0 1%
+      padding: .5% 1%
+      border-radius: 7px
+      font-size: 1.5rem
+      text-transform: uppercase
+      &:hover
+        background: #F9F9F9
+        cursor: pointer
