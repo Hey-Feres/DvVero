@@ -2,7 +2,7 @@
 lock "~> 3.17.0"
 
 set :application, "DvVero"
-set :repo_url, "git@github.com:Hey-Feres/DvVero.git"
+set :repo_url, "https://github.com/Hey-Feres/DvVero.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
