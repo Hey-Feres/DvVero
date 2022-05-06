@@ -33,6 +33,14 @@ gem 'slim-rails'
 gem 'rubocop'
 # Used for processing rails admin images
 gem 'image_processing', '~> 1.2'
+# Capistrano is a utility and framework for executing commands in parallel on multiple remote machines, via SSH.
+gem 'capistrano', '~> 3.17'
+# RVM integration for Capistrano
+gem 'capistrano-rvm'
+# Bundler support for Capistrano 3.x
+gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
+# Rails specific Capistrano tasks
+gem 'capistrano-rails', '~> 1.6', '>= 1.6.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
