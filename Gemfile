@@ -57,9 +57,17 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
+  # The Listen gem listens to file modifications and notifies you about the changes.
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Unicorn specific Capistrano tasks
+  gem 'capistrano3-unicorn'
+end
+
+group :production do
+  # Unicorn is an HTTP server for Rack applications designed to only serve fast clients on low-latency
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
