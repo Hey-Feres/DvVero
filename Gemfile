@@ -45,6 +45,8 @@ gem 'capistrano-rails', '~> 1.6', '>= 1.6.2'
 gem 'ed25519', '~> 1.3'
 # This gem implements bcrypt_pbkdf (a variant of PBKDF2 with bcrypt-based PRF)
 gem 'bcrypt_pbkdf', '~> 1.1'
+# Authentication
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
