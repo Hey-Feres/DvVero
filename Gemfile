@@ -47,6 +47,8 @@ gem 'ed25519', '~> 1.3'
 gem 'bcrypt_pbkdf', '~> 1.1'
 # Authentication
 gem 'devise'
+# Exception Tracker
+gem 'rollbar'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
